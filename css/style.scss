@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    padding: 10px;
+    
+}
+
+
+.btn-cart {
+    padding: 15px 30px;
+    background-color: aquamarine;
+}
+
+.products {
+    padding: 35px 15px 0 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.products-item {
+    text-align: center;
+    background-color: gray;
+}
+
+.products-item__title {
+    padding: 25px 15px 15px 15px;
+}
