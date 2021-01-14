@@ -16,7 +16,7 @@ const renderProduct = (title = Good, price = 150) => {
 };
 
 const render = productsList => {
-    document.querySelector('.products').innerHTML = productsList.map(item => renderProduct(item.title, item.price)).join('');
+    document.querySelector('.products').innerHTML = productsList.map(item => renderProduct(item.title, item.price)).join(''); // Запятая появляется из-за метода map, решается добавлением после обработки метода join, либо вместо map использовать reduce.
 };
 
 
