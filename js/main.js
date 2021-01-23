@@ -1,4 +1,3 @@
-
 class Product {
     constructor(product, img = `https://placehold.it/100X50`) {
         let { title, price = 0, id } = product;
@@ -67,9 +66,10 @@ class Cart {
         };
         this.data = [];
         this.cartProducts = [];
+        this.cartContainer = document.querySelector('.cart-container');
         this.btnsListener();
         this.cartListener();
-
+        this.deleteFromCart();
     }
 
     cartTotalSum() {
@@ -78,13 +78,14 @@ class Cart {
 
     btnsListener() {
         const btns = document.querySelectorAll('.buy-btn');
-        btns.forEach(function (elem) {
+        btns.forEach((elem) => {
             elem.addEventListener('click', (event) => {
-                console.log(event.target.dataset.price)
-                console.log(this.cartItem.price)
-                this.cartItem.price = elem.dataset.price;
-                this.cartItem.title = event.target.dataset.title;
-                this.cartProducts.push(this.cartItem)
+                const arrItem = [event.target.dataset.price, event.target.dataset.title];
+                // if (!this.cartProducts.includes(arrItem)) {
+                //     this.cartProducts.push(arrItem);
+                // }
+                const cartProduct = new CartItem(arrItem);
+                this.addToCart(cartProduct.render())
                 console.log(this.cartProducts)
             })
         })
@@ -92,41 +93,52 @@ class Cart {
 
     cartListener() {
         let cartList = document.querySelector('.btn-cart');
-        let cartContainer = document.querySelector('.cart-container')
-        cartList.addEventListener('click', function () {
-            if (cartContainer.style.display == 'none') {
-                cartContainer.style.display = 'block';
+        cartList.addEventListener('click', () => {
+            if (this.cartContainer.style.display == 'none') {
+                this.cartContainer.style.display = 'block';
             } else {
-                cartContainer.style.display = 'none';
+                this.cartContainer.style.display = 'none';
             }
         })
     }
 
+    addToCart(item) {
+        this.cartContainer.insertAdjacentHTML('beforeend', item)
 
-    render() {
-        //взаимодействует с DOM вставляя товары в корзину.
     }
 
+    deleteFromCart() {
+        let containerCart = document.querySelector('.cart-container');
+        containerCart.addEventListener('click', (event) => {
+            if (event.target.tagName == 'BUTTON') {
+                event.target.parentNode.remove();
+            }
+        })
+    }
 
 }
 
 const cart = new Cart();
 
 class CartItem {
-    constructor(title, price) {
+    constructor(product) {
+        let [price, title] = product;
         this.title = title;
         this.price = price;
         this.quant = 1;
+
     }
 
 
 
     render() {
         return `<div class="cart-item">
-                    <p class="cart-item__title">Наименование: ${title}</p>
-                    <p class="cart-item__price">Стоимость: ${price}</p>
+                    <p class="cart-item__title">Наименование: ${this.title}</p>
+                    <p class="cart-item__price">Стоимость: ${this.price}</p>
                     <button class="cart-item__delete">Удалить товар из корзины</button>
                 </div>`
 
     }
+
+
 }
