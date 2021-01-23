@@ -46,6 +46,10 @@ button {
       align-self: center;
 }
 
+main {
+  position: relative;
+}
+
 .products {
   -webkit-column-gap: 30px;
           column-gap: 30px;
@@ -106,5 +110,31 @@ img {
   background-color: transparent;
   border-color: #2f2a2d;
   color: #2f2a2d;
+}
+
+.cart-container {
+  display: none;
+  width: 400px;
+  height: 100%;
+  background-color: #2f2a2d;
+  position: absolute;
+  right: 0;
+  color: #fafafa;
+}
+
+.cart-item {
+  padding: 15px;
+}
+
+.cart-item__title {
+  margin-bottom: 10px;
+}
+
+.cart-item__price {
+  margin-bottom: 10px;
+}
+
+.cart-item__delete {
+  border-radius: 7px;
 }
 /*# sourceMappingURL=style.css.map */
