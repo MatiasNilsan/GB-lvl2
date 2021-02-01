@@ -19,6 +19,10 @@ button {
   font-weight: bold;
 }
 
+.search-form {
+  padding-bottom: 10px;
+}
+
 .btn-cart{
   background-color: #fafafa;
   padding: 10px 20px;
@@ -39,7 +43,7 @@ button {
   align-self: center;
 }
 
-main{
+#app{
     position: relative;
 }
 
@@ -93,31 +97,15 @@ img {
   color: #2f2a2d;
 }
 
-.cart-container{
-    display: none;
+.cart-block{
     width: 400px;
-    height: 100%;
     background-color: #2f2a2d;
     position: absolute;
     right: 0;
-    color: #fafafa;
+    padding-top: 30px;
     
-    
 }
 
-.cart-item{
-  padding: 15px;
-}
-
-.cart-item__title{
-  margin-bottom: 10px;
-}
-
-.cart-item__price{
-  margin-bottom: 10px;
-}
-
-.cart-item__delete{
-  border-radius: 7px;
-  
+.cart-item__container {
+  margin-bottom: 20px;
 }
