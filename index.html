@@ -4,28 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Shop</title>
 </head>
 
 <body>
-    <header>
-        <div class="logo">E-shop</div>
-        <button class="btn-cart" type="button">Cart</button>
-
-    </header>
-    <main>
-        <div class="cart-container">
-            1234
-        </div>
-
-        <div class="products"></div>
-
-        <div class="burgers"></div>
-
-
+    <div id="app">
+        <header>
+            <div class="logo">E-shop</div>
+            <form action="#" class="search-form">
+                <input v-model="searchLine" type="text" class="search-field">
+                <button @click="filterProducts" class="btn-search" type="sumbit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <Cart ref="cart"></Cart>
+        </header>
+        <main>
+            <Products ref="catalog"></Products>>
+    </div>
 
     </main>
-
+    </div>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+        integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./js/main.js" type="module"></script>
 </body>
 
 </html>
