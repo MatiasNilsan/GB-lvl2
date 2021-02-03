@@ -19,43 +19,19 @@
                     <i class="fas fa-search"></i>
                 </button>
             </form>
-            <div class="cart">
-                <button @click="isVisibleCart = !isVisibleCart" class="btn-cart" type="button">Корзина</button>
-                <div v-show="isVisibleCart" class="cart-block">
-                    <div class="cap">{{ cartProducts.length === 0 ? 'Нет данных' : 'Список товаров:'}}</div>
-                    <div v-for="el of cartProducts" :key="el.id_product">
-                        <div class="cart-item__container">
-                            <img :src="imgCart" alt="el.product_name">
-                            <div class="cart-item__desc">
-                                <h3>{{ el.product_name }}</h3>
-                                <p class="quantity">Количество: {{ el.quantity }}</p>
-                                <p>Цена: {{ el.price * el.quantity }}</p>
-                                <button @click="deleteFromCart(el)">Удалить товар</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Cart ref="cart"></Cart>
         </header>
         <main>
-            <div class="products">
-                <div class="product-item" v-for="el of filterProducts" :key="el.id_product">
-                    <img :src="imgCatalog" :alt="el.product_name">
-                    <div class="desc">
-                        <h3>{{ el.product_name }}</h3>
-                        <p>{{ el.price }}</p>
-                        <button class="buy-btn" @click="addProduct(el)">Купить</button>
-                    </div>
-                </div>
-            </div>
+            <Products ref="catalog"></Products>>
+    </div>
 
-        </main>
+    </main>
     </div>
     <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
         integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@next"></script>
-    <script src="./js/main.js"></script>
+    <script src="./js/main.js" type="module"></script>
 </body>
 
 </html>
