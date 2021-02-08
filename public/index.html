@@ -13,16 +13,12 @@
     <div id="app">
         <header>
             <div class="logo">E-shop</div>
-            <form action="#" class="search-form">
-                <input v-model="searchLine" type="text" class="search-field">
-                <button @click="filterProducts" class="btn-search" type="sumbit">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
+            <Search ref="search"></Search>
             <Cart ref="cart"></Cart>
         </header>
         <main>
             <Products ref="catalog"></Products>>
+            <Error ref="error"></Error>
     </div>
 
     </main>
